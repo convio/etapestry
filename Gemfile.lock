@@ -55,7 +55,7 @@ GEM
       macaddr (~> 1.0)
     watir-webdriver (0.5.3.1)
       selenium-webdriver (>= 2.12.0)
-    watirmark (3.1)
+    watirmark (3.2)
       american_date
       logger
       nokogiri
