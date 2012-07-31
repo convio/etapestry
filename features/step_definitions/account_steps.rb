@@ -6,6 +6,6 @@ Given /^I create a (\[new account: \S+\])$/ do |model|
   Account.new(model).create
 end
 
-Then /^the account (\[[^\]]+\]) should be created properly/ do |model|
+Then /^I should be able to see the (\[[^\]]+\]) data on the persona page/ do |model|
   Account.new(model).verify
 end

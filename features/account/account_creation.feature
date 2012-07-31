@@ -48,6 +48,6 @@ Feature: Account creation
       | note             | notes |
       | short_salutation | short hi |
       | long_salutation  | long hi |
-    Then the account [account] should be created properly
+    Then I should be able to see the [account] data on the persona page
 
 
