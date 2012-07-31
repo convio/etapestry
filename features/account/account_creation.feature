@@ -27,4 +27,29 @@ Feature: Account creation
       | sort_name | |
     Then I should see the error: /Sort Name: This field must be completed prior to saving./
 
+  Scenario: Should be able to create an account with the full complement of fields for a constituent role
+    When I create a [new account: account] with values
+      | constituent_role | true |
+      | tribute_role     | false|
+      | user_role        | false |
+      | recognition_name | recognition |
+      | recognition_type | Anonymous |
+      | persona_type     | Business |
+      | start_date       | 01/01/2000 |
+      | end_date         | 01/02/2020 |
+      | address          | 3405 Mulberry Creeek Dr |
+      | city             | Austin |
+      | state            | TX |
+      | postal_code      | 78732 |
+      | county           | Travis |
+      | country          | United States |
+      | voice            | 555-111-1111 |
+      | fax              | 555-222-2222 |
+      | mobile           | 555-333-3333 |
+      | web_page         | http://www.yahoo.com |
+      | note             | notes |
+      | short_salutation | short hi |
+      | long_salutation  | long hi |
+    Then the account [account] should be created properly
+
 

@@ -18,9 +18,9 @@ module ETapestry
     keyword(:postal_code)      {form.text_field(:id, 'postalCode_0')}
     keyword(:county)           {form.text_field(:id, 'county_0')}
     keyword(:country)          {form.select_list(:id, 'countrySelect_0')}
-    keyword(:voice)            {form.td(:text, 'Voice').nextsibling}
-    keyword(:fax)              {form.td(:text, 'Fax').nextsibling}
-    keyword(:mobile)           {form.td(:text, 'Mobile').nextsibling}
+    keyword(:voice)            {form.td(:text, 'Voice').nextsibling.text_field}
+    keyword(:fax)              {form.td(:text, 'Fax').nextsibling.text_field}
+    keyword(:mobile)           {form.td(:text, 'Mobile').nextsibling.text_field}
     keyword(:email)            {form.text_field(:id, 'emailAddress_0')}
     keyword(:web_page)         {form.text_field(:id, 'webAddress_0')}
     keyword(:note)             {form.text_field(:id, 'note_0')}
@@ -34,6 +34,10 @@ module ETapestry
         navbar.link(:text, 'Add Account').click
       end
       alias :create :home
+
+      def edit(model)
+        AccountFindView.edit(model)
+      end
     end
   end
 end
