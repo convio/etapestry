@@ -2,15 +2,15 @@ module ETapestry
   class BaseView < Watirmark::Page
     class << self
       def toolbar
-        browser.frame(:src, /Toolbar.jsp/)
+        browser.frame(:name, "toolbar")
       end
 
       def navbar
-        browser.frame(:src, /navbar.do/)
+        browser.frame(:name, "navbar")
       end
 
-      def form
-        browser.frame(:src, /welcome.do/)
+      def content
+        browser.frame(:name, "content")
       end
     end
   end

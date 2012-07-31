@@ -30,14 +30,12 @@ Feature: Account creation
   Scenario: Should be able to create an account with the full complement of fields for a constituent role
     When I create a [new account: account] with values
       | constituent_role | true |
-      | tribute_role     | false|
-      | user_role        | false |
       | recognition_name | recognition |
       | recognition_type | Anonymous |
       | persona_type     | Business |
       | start_date       | 01/01/2000 |
       | end_date         | 01/02/2020 |
-      | address          | 3405 Mulberry Creeek Dr |
+      | address          | 3405 Mulberry Creek Dr |
       | city             | Austin |
       | state            | TX |
       | postal_code      | 78732 |
