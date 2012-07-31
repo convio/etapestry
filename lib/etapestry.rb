@@ -1,4 +1,6 @@
 require 'etapestry/configuration'
 require 'watirmark'
 require 'etapestry/loader'
+require 'etapestry/core_libraries'
+ETapestry::Loader.load_product 'account'
 ETapestry::Loader.load_product 'login'

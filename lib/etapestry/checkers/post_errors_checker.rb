@@ -12,6 +12,7 @@ module Watirmark
         end
       end
     end
+
     Watirmark::Session::POST_WAIT_CHECKERS << Proc.new { Watirmark::Session::post_errors }
   end
 end
