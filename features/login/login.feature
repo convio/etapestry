@@ -2,9 +2,7 @@
 Feature: Normal path for logging into the site
 
   Background:
-    Given  I create a model [new login: user_login] with values
-      | username | Hugh.McGowan@blackbaud.com |
-      | password | luminate                   |
+    Given  I create a model [new login: user_login]
     And I logout
 
   Scenario: Login with valid username and password
@@ -44,4 +42,9 @@ Feature: Normal path for logging into the site
 
   Scenario: Should not allow multiple logins at the same time
 
+  Scenario: Should be able to force a login when multiple sessions detected
+  # Note: there's a bug here where in cases where you force the login, the dashboard
+  # components never load
+
   Scenario: Should handle a login from the same session gracefully (when not logged out)
+

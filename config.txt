@@ -1,0 +1,4 @@
+hostname = bos.etapestry.com
+username = Hugh.McGowan@blackbaud.com
+password = luminate
+webdriver=firefox
