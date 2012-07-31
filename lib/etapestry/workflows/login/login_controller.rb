@@ -1,6 +1,6 @@
 module ETapestry
 
-  class Login < Watirmark::WebPage::Controller
+  class Login < BaseController
     @model = LoginModel
     @view = LoginView
 
@@ -8,13 +8,16 @@ module ETapestry
       @view.logout
     end
 
-    alias :login :create
+    def login
+      unless @view.config.loggedin
+        @view.login
+        populate_data
+      end
+    end
 
     def submit
       @view.login_button.click
       @view.config.loggedin = true
-      @view.config.username = @model.username
-      return
     end
 
   end
