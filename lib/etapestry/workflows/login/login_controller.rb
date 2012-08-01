@@ -11,7 +11,16 @@ module ETapestry
     def login
       unless @view.config.loggedin
         @view.login
-        populate_data
+        begin
+          populate_data
+        rescue Watirmark::PostFailure=>e
+          if Watirmark::Configuration.instance.force_login
+            @view.force = true
+            populate_data
+          else
+            raise e
+          end
+        end
       end
     end
 

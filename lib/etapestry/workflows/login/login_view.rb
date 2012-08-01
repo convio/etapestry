@@ -2,6 +2,7 @@ module ETapestry
   class LoginView < BaseView
     keyword(:username)      {browser.text_field(:name, 'j_username')}
     keyword(:password)      {browser.text_field(:name, 'j_password')}
+    keyword(:force)         {browser.checkbox(:name, 'force')}
     keyword(:login_button)  {browser.button(:value, 'Login')}
     keyword(:logout_link)   {toolbar.link(:text, 'Logout')}
 
