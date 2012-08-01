@@ -1,7 +1,7 @@
 module ETapestry
   class BaseController < Watirmark::WebPage::Controller
     def submit
-      alert = Page.browser.alert do
+      alert = Page.browser.close_alert do
         if @view.save_button.exists?
           @view.save_button.click
         else
@@ -11,7 +11,7 @@ module ETapestry
       if Watirmark::Session.instance.buffer_post_failure
         Watirmark::Session.instance.post_failure = alert.gsub("\s*\n\s*", " ")
       else
-        raise  Watirmark::PostFailure, alert if alert
+        raise Watirmark::PostFailure, alert if alert
       end
     end
   end

@@ -13,7 +13,7 @@ gem 'activesupport'
 gem 'hoe'
 gem 'logrotate'
 gem 'bundler'
-gem 'watir-webdriver', '0.5.3.1'
+gem 'watir-webdriver', '0.6.1.1'
 gem 'uuid'
 gem 'watir', '~>2.0.4.3', :platforms => :mingw
 gem 'win32-api', :platforms => :mingw

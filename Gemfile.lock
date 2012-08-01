@@ -53,8 +53,8 @@ GEM
     systemu (2.5.2)
     uuid (2.3.5)
       macaddr (~> 1.0)
-    watir-webdriver (0.5.3.1)
-      selenium-webdriver (>= 2.12.0)
+    watir-webdriver (0.6.1.1)
+      selenium-webdriver (>= 2.18.0)
     watirmark (3.2)
       american_date
       logger
@@ -86,6 +86,6 @@ DEPENDENCIES
   rspec
   uuid
   watir (~> 2.0.4.3)
-  watir-webdriver (= 0.5.3.1)
+  watir-webdriver (= 0.6.1.1)
   watirmark
   win32-api
