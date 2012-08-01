@@ -7,3 +7,8 @@ Watirmark.loader do
   product 'ETapestry'
   load_files 'checkers/**/*.rb'
 end
+
+
+require 'etapestry/workflows/login'
+
+

@@ -8,7 +8,3 @@ require 'watirmark/cucumber/env'
 Watirmark::Configuration.instance.bypass_admin_login = false
 
 include ETapestry
-
-at_exit {
-  LoginView.logout_link.click if LoginView.logout_link.present?
-}
