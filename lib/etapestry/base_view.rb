@@ -2,15 +2,19 @@ module ETapestry
   class BaseView < Watirmark::Page
     class << self
       def toolbar
-        browser.frame(:name, "toolbar")
+        Page.browser.frame(:name, "toolbar")
       end
 
       def navbar
-        browser.frame(:name, "navbar")
+        Page.browser.frame(:name, "navbar")
       end
 
       def content
-        browser.frame(:name, "content")
+        Page.browser.frame(:name, "content")
+      end
+
+      def content_label(name)
+        content.td(:text, name).nextsibling
       end
     end
   end
