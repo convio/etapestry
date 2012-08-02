@@ -1,5 +1,5 @@
 module ETapestry
-  class AddAccountView < BaseView
+  class AccountView < BaseView
     keyword(:constituent_role) {content.checkbox(:id, 'createCustomerRole')}
     keyword(:tribute_role)     {content.checkbox(:id, 'createTributeRole')}
     keyword(:user_role)        {content.checkbox(:id, 'createUserRole')}

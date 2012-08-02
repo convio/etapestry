@@ -1,7 +1,7 @@
 module ETapestry
   class AccountSearchView < BaseView
     keyword(:search_for)              {content.text_field(:id, 'searchString')}
-    private_keyword(:select)          {|name| content.link(:text, /^#{name}/)}
+    private_keyword(:account_link)    {|name| content.link(:text, /^#{name}/)}
     navigation_keyword(:find_button)  {content.button(:value, 'Find')}
 
     class << self

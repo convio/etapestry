@@ -1,9 +1,9 @@
-Given /^I create a (\[new add_account: \S+\]) with values$/ do |model, table|
-  AddAccount.new(model.merge_cucumber_table(table)).create
+Given /^I create a (\[new account: \S+\]) with values$/ do |model, table|
+  Account.new(model.merge_cucumber_table(table)).create
 end
 
-Given /^I create a (\[new add_account: \S+\])$/ do |model|
-  AddAccount.new(model).create
+Given /^I create a (\[new account: \S+\])$/ do |model|
+  Account.new(model).create
 end
 
 Then /^I should see the (\[[^\]]+\]) on the persona page/ do |model|
