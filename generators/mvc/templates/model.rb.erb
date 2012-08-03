@@ -1,5 +1,5 @@
 module ETapestry
-  <%= name %>Model = Watirmark::Model::Base.new(*<%= name %>View.keywords) do
+  <%= name.camelcase %>Model = Watirmark::Model::Base.new(*<%= name.camelcase %>View.keywords) do
     #search_term           {name}
     #
     #default.name          {"name_#{uuid}"}

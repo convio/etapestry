@@ -1,7 +1,7 @@
 module ETapestry
-  class <%= name %> < BaseController
-    @model = <%= name %>Model
-    @view = <%= name %>View
+  class <%= name.camelcase %> < BaseController
+    @model = <%= name.camelcase %>Model
+    @view = <%= name.camelcase %>View
   end
 end
 

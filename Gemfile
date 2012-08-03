@@ -15,5 +15,6 @@ gem 'logrotate'
 gem 'bundler'
 gem 'watir-webdriver', '0.6.1.1'
 gem 'uuid'
+gem 'rubigen'
 gem 'watir', '~>2.0.4.3', :platforms => :mingw
 gem 'win32-api', :platforms => :mingw

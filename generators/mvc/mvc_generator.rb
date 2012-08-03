@@ -1,7 +1,8 @@
 require 'rubigen'
+require 'active_support/inflector'
+
 class MvcGenerator < RubiGen::Base
-  default_options :author => nil
-  attr_reader :name
+  attr_reader :produc, :name
 
   def initialize(runtime_args, runtime_options = {})
     super
@@ -32,7 +33,7 @@ class MvcGenerator < RubiGen::Base
   protected
   def banner
     <<-EOS
-USAGE: #{spec.name} path/for/your/test/create_project project_name [options]
+USAGE: #{spec.name} path/for/your/test/mvc workflow_driectory name [options]
     EOS
   end
 

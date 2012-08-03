@@ -1,7 +1,7 @@
 module ETapestry
-  class <%= name %>View < BaseView
-    keyword(:name)                   { browser.text_field(:id, 'name') }
-    navigation_keyword(:save_button) { browser.button(:value, 'Save') }
+  class <%= name.camelcase %>View < BaseView
+    #keyword(:name)                   { browser.text_field(:id, 'name') }
+    #navigation_keyword(:save_button) { browser.button(:value, 'Save') }
 
     class << self
       def home(model)
