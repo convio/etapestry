@@ -1,6 +1,6 @@
 require 'etapestry/extensions/webdriver_extensions'
 require "watir-webdriver/extensions/alerts"
-require 'etapestry/base_view'
+require 'etapestry/views/base_view'
 require 'etapestry/controllers/base_controller'
 require 'etapestry/controllers/search_controller'
 Watirmark.loader do
