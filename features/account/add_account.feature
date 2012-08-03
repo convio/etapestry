@@ -47,7 +47,7 @@ Feature: Account creation
       | persona.note             | notes                  |
       | persona.short_salutation | short hi               |
       | persona.long_salutation  | long hi                |
-   # Then I should see the [account] on the persona page
+    Then I should see the [account] on the persona page
     And the account header for [account] should contain the correct information
 
 
