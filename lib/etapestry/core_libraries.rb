@@ -1,8 +1,8 @@
 require 'etapestry/extensions/webdriver_extensions'
 require "watir-webdriver/extensions/alerts"
 require 'etapestry/base_view'
-require 'etapestry/base_controller'
-require 'etapestry/search_controller'
+require 'etapestry/controllers/base_controller'
+require 'etapestry/controllers/search_controller'
 Watirmark.loader do
   base_directory File.dirname(__FILE__)
   product 'ETapestry'
