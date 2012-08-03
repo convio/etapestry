@@ -16,6 +16,9 @@ module ETapestry
       def content_label(name)
         content.td(:text, name).nextsibling
       end
+
+      def home(model)
+      end
     end
   end
 end

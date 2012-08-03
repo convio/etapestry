@@ -9,3 +9,7 @@ end
 Then /^I should see the (\[[^\]]+\]) on the persona page/ do |model|
   Persona.new(model).verify
 end
+
+Then /^the account header for (\[[^\]]+\]) should contain the correct information/ do |model|
+  AccountHeader.new(model).verify
+end
