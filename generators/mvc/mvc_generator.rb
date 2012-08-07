@@ -2,7 +2,7 @@ require 'rubigen'
 require 'active_support/inflector'
 
 class MvcGenerator < RubiGen::Base
-  attr_reader :produc, :name
+  attr_reader :product, :name
 
   def initialize(runtime_args, runtime_options = {})
     super

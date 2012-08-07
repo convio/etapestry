@@ -1,5 +1,5 @@
 module ETapestry
-  class AccountHeaderView < BaseView
+  class HeaderView < BaseView
     keyword(:name)        {header_section(2,1)}
     keyword(:user_role)   {header_section(0,2)}
     keyword(:address)     {header_section(3,1)}

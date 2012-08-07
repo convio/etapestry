@@ -1,5 +1,4 @@
 module ETapestry
-
   class Login < BaseController
     @model = LoginModel
     @view = LoginView
