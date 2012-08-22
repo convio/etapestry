@@ -17,7 +17,10 @@ module ETapestry
       alias :login :home
 
       def logout
-        logout_link.click if logout_link.present?
+        if logout_link.present?
+          logout_link.click
+        end
+        config.loggedin = false
       end
 
     end
