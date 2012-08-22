@@ -13,7 +13,7 @@ require 'cucumber/rake/task'
 module RakeHelper
   def self.cucumber_task(task_name, files=nil)
     Cucumber::Rake::Task.new(task_name) do |t|
-      t.cucumber_opts = "-r features #{FileList[files]}"
+      t.cucumber_opts = "-r features #{FileList[files]} -b --format html -o reports/report.html --format pretty"
     end
   end
 end
