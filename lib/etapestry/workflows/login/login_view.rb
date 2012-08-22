@@ -12,7 +12,7 @@ module ETapestry
       end
 
       def home(model=nil)
-        Page.browser.goto("https://#{config.hostname}/prod/Login.jsp?application=enum.applicationType.etapestry")
+        Page.browser.goto("https://#{config.hostname}/#{config.site}/Login.jsp?application=enum.applicationType.etapestry")
       end
       alias :login :home
 
