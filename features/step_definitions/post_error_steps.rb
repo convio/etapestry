@@ -10,8 +10,7 @@ end
 
 # Pattern matches
 Then /^I should see the error: \/(.+)\/$/ do |error|
-  # Replace carriage returns with a space to make it easier to declare the error
-  error = model_gsub(error)
+  error.gsub!(/[\r\n]+/, ' ')
   Watirmark::IESession.instance.post_failure.gsub(/[\r\n]+/, ' ').should =~ /#{error}/
 end
 

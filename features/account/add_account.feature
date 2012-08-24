@@ -2,7 +2,7 @@
 Feature: Account creation
 
   Background:
-    Given I login as [new login: user_login]
+    Given I login as [new Login::Admin user_login]
 
   Scenario: Should be able to create an account with the minimum number of fields
     When I create a [new Account::Record account_min_fields]

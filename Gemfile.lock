@@ -26,7 +26,6 @@ GEM
     libwebsocket (0.1.5)
       addressable
     logger (1.2.8)
-    logrotate (1.2.1)
     macaddr (1.6.1)
       systemu (~> 2.5.0)
     mime-types (1.19)
@@ -82,12 +81,9 @@ DEPENDENCIES
   gherkin
   hoe
   i18n
-  logrotate
   rake
   rspec
   rubigen
   uuid
-  watir (~> 2.0.4.3)
   watir-webdriver (= 0.6.1.1)
   watirmark
-  win32-api

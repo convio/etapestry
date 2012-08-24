@@ -2,7 +2,7 @@
 Feature: Normal path for logging into the site
 
   Background:
-    Given  I create a model [new login: user_login]
+    Given  I create a model [new Login::Admin user_login]
     And I logout
 
   Scenario: Login with valid username and password
@@ -14,31 +14,31 @@ Feature: Normal path for logging into the site
     When I login as [user_login] with values
       | username |  |
       | password |  |
-    Then I should see the error: /The Login id\/password combination you entered is not valid./
+    Then I should see the error: /Please enter your username Please enter your password/
 
   @catch-post-failure
   Scenario: Login with no password
     When I login as [user_login] with values
       | password |  |
-    Then I should see the error: /The Login id\/password combination you entered is not valid./
+    Then I should see the error: /Please enter your password/
 
   @catch-post-failure
   Scenario: Login with no username
     When I login as [user_login] with values
       | username |  |
-    Then I should see the error: /The Login id\/password combination you entered is not valid./
+    Then I should see the error: /Please enter your username /
 
   @catch-post-failure
   Scenario: Login with invalid username
     When I login as [user_login] with values
       | username | username_does_not_exist |
-    Then I should see the error: /The Login id\/password combination you entered is not valid./
+    Then I should see the error: /Please enter your password/
 
   @catch-post-failure
   Scenario: Login with invalid password
     When I login as [user_login] with values
       | password | bad_password |
-    Then I should see the error: /The Login id\/password combination you entered is not valid./
+    Then I should see the error: /Invalid username or password/
 
   Scenario: Should not allow multiple logins at the same time
 
