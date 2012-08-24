@@ -9,6 +9,7 @@ class MvcGenerator < RubiGen::Base
     usage if args.empty?
     @product = args.shift
     @name = args.shift
+    usage unless @name && @product
     @destination_root = File.expand_path(File.dirname(__FILE__) + '/../../')
     extract_options
   end
@@ -20,20 +21,49 @@ class MvcGenerator < RubiGen::Base
   def manifest
     record do |m|
       create_directories(m)
-      m.template "model.rb.erb", File.join(workflow_directory, "#{@name}_model.rb")
-      m.template "view.rb.erb", File.join(workflow_directory,"#{@name}_view.rb")
-      m.template "controller.rb.erb", File.join(workflow_directory,"#{@name}_controller.rb")
+      unless workflow_exists?
+        update_workflow_loader_manifest
+        add_rake_task
+      end
+      add_mvc_stubs m
     end
   end
 
+  def add_mvc_stubs m
+    m.template "model.rb.erb", File.join(workflow_directory, "#{@name}_model.rb")
+    m.template "view.rb.erb", File.join(workflow_directory,"#{@name}_view.rb")
+    m.template "controller.rb.erb", File.join(workflow_directory,"#{@name}_controller.rb")
+    m.template "workflow_loader.rb.erb", File.join(workflow_directory, "..", "#{@product}.rb")
+  end
+
+  def workflow_exists?
+    File.directory? "../lib/etapestry/workflows/#{@product}"
+  end
+
+  def update_workflow_loader_manifest
+    append_to_file "../lib/etapestry/workflows.rb" do |f|
+      f.puts "require 'etapestry/workflows/#{@product}'"
+    end
+  end
+
+  def add_rake_task
+    append_to_file "../rakefile.rb" do |f|
+      f.puts "RakeHelper.cucumber_task(:#{@product}, \"features/#{@product}/**/*.feature\")"
+    end
+  end
+
+  def append_to_file name, &block
+    File.open(name, 'a+') {|f| yield f}
+  end
+
   def create_directories(m)
-    m.directory File.join('lib/etapestry/workflows',@product)
+    m.directory workflow_directory
   end
 
   protected
   def banner
     <<-EOS
-USAGE: #{spec.name} path/for/your/test/mvc workflow_driectory name [options]
+USAGE: #{spec.name} path/for/your/test/mvc workflow_directory name [options]
     EOS
   end
 
