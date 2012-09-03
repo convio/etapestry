@@ -14,7 +14,7 @@ Feature: Normal path for logging into the site
     When I login as [user_login] with values
       | username |  |
       | password |  |
-    Then I should see the error: /Please enter your username Please enter your password/
+    Then I should see the error: /Please enter your login id Please enter your password/
 
   @catch-post-failure
   Scenario: Login with no password
@@ -26,7 +26,7 @@ Feature: Normal path for logging into the site
   Scenario: Login with no username
     When I login as [user_login] with values
       | username |  |
-    Then I should see the error: /Please enter your username /
+    Then I should see the error: /Please enter your login id Please enter your password/
 
   @catch-post-failure
   Scenario: Login with invalid username
@@ -38,7 +38,7 @@ Feature: Normal path for logging into the site
   Scenario: Login with invalid password
     When I login as [user_login] with values
       | password | bad_password |
-    Then I should see the error: /Invalid username or password/
+    Then I should see the error: /Invalid login id or password/
 
   Scenario: Should not allow multiple logins at the same time
 
