@@ -6,6 +6,7 @@ Feature: Account creation
 
   Scenario: Should be able to create an account with the minimum number of fields
     When I create a [new Account::Record account_min_fields]
+    Then I should see the [account_min_fields] on the Other page
 
   @catch-post-failure
   Scenario: Should not be able to create an account without default fields populated
