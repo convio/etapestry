@@ -53,7 +53,7 @@ GEM
       macaddr (~> 1.0)
     watir-webdriver (0.6.1.1)
       selenium-webdriver (>= 2.18.0)
-    watirmark (5.13.1)
+    watirmark (5.13.2)
       activesupport
       american_date
       logger
@@ -82,4 +82,4 @@ DEPENDENCIES
   rubigen
   selenium-webdriver (= 2.25.0)
   watir-webdriver (= 0.6.1.1)
-  watirmark
+  watirmark (~> 5.13)
