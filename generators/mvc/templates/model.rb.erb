@@ -1,11 +1,14 @@
 module ETapestry
   module <%= product.camelcase %>
-    <%= name.camelcase %>Model = Watirmark::Model::Base.new(*<%= name.camelcase %>View.keywords) do
-      #search_term           {name}
+    <%= name.camelcase %>Model = Watirmark::Model.factory
+      keywords <%= name.camelcase %>View.keywords
+      #search_term {name}
       #
-      #default.name          {"name_#{uuid}"}
+      # defaults do
+      #  name          {"name_#{uuid}"}
+      # end
       #
-      #add_model SomeModelName.new
+      #model SomeModelName.new
     end
   end
 end
