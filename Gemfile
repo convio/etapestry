@@ -1,17 +1,13 @@
 source "http://gemcutter.org"
 source "http://gemserver.qa.convioanalyticstest.net:8808"
 
-gem 'rspec'
 gem 'watirmark'
-gem 'rake'
-gem 'builder'
-gem 'ffi'
+gem 'watir-webdriver', '0.6.1.1'
+gem 'selenium-webdriver', '2.25.0'
 gem 'i18n'
+gem 'rspec'
+gem 'rake'
 gem 'cucumber'
 gem 'gherkin'
-gem 'activesupport'
-gem 'hoe'
 gem 'bundler'
-gem 'watir-webdriver', '0.6.1.1'
-gem 'uuid'
 gem 'rubigen'
