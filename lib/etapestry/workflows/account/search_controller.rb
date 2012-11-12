@@ -9,9 +9,10 @@ module ETapestry
       end
 
       def current_record_visible?
-        HeaderView.header.present? &&
-        HeaderView.name.exists? &&
-        HeaderView.name.text == @model.search_term
+        headerview = HeaderView.new
+        headerview.header.present? &&
+        headerview.name.exists? &&
+        headerview.name.text == @model.search_term
       end
 
       def submit

@@ -6,16 +6,14 @@ module ETapestry
     keyword(:email)       {header_section(3,1).link(:text, /@/)}
     keyword(:website)     {header_section(3,1).link(:text, /^((?!@).)*$/)}
 
-    class << self
-      def header
-        content.div(:id, 'followMeDiv1')
-      end
-
-      def header_section(row, col)
-        header.trs[row].tds[col]
-      end
-
-      alias :edit :home
+    def header
+      content.div(:id, 'followMeDiv1')
     end
+
+    def header_section(row, col)
+      header.trs[row].tds[col]
+    end
+
+    alias :edit :home
   end
 end

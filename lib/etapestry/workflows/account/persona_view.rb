@@ -22,12 +22,10 @@ module ETapestry
       navigation_keyword(:persona_link)     {content.link(:text, 'Personas')}
       navigation_keyword(:save_button)  {content.button(:value, 'Save And')}
 
-      class << self
-        def home(model=nil)
-          persona_link.click
-        end
-        alias :edit :home
+      def home(model=nil)
+        persona_link.click
       end
+      alias :edit :home
     end
   end
 end

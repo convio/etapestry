@@ -9,13 +9,11 @@ module ETapestry
       navigation_keyword(:other_link) { content.link(:text, 'Other') }
       navigation_keyword(:save_button) { content.button(:value, 'Save And') }
 
-      class << self
-        def home(model=nil)
-          other_link.click
-        end
-
-        alias :edit :home
+      def home(model=nil)
+        other_link.click
       end
+
+      alias :edit :home
     end
   end
 end

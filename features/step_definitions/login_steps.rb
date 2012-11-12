@@ -15,5 +15,5 @@ Given /^I logout/ do
 end
 
 Then /I should be logged in/ do
-  Login::AdminView.logout_link.when_present.should_not raise_error Timeout::Error
+  Login::AdminView.new.logout_link.when_present.should_not raise_error Timeout::Error
 end

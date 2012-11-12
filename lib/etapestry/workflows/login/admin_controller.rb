@@ -12,7 +12,7 @@ module ETapestry
         unless @view.config.loggedin
           @view.login
           populate_data
-          if ForceView.lightbox.present? && Watirmark::Configuration.instance.force_login
+          if ForceView.new.lightbox.present? && Watirmark::Configuration.instance.force_login
             Login::Force.new(@model).login
           end
         end

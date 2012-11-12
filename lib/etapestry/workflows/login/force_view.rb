@@ -5,11 +5,8 @@ module ETapestry
       keyword(:password)      {lightbox.text_field(:name, 'j_password')}
       keyword(:login_button)  {lightbox.button(:value, 'Yes')}
 
-      class << self
-
-        def lightbox
-          Page.browser.form(:name, 'forceLogin')
-        end
+      def lightbox
+        Page.browser.form(:name, 'forceLogin')
       end
     end
   end

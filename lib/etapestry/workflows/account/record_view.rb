@@ -7,12 +7,10 @@ module ETapestry
 
       navigation_keyword(:save_button)      {content.button(:value, 'Save And')}
 
-      class << self
-        def home(model=nil)
-          navbar.link(:text, 'Add Account').click
-        end
-        alias :create :home
+      def home(model=nil)
+        navbar.link(:text, 'Add Account').click
       end
+      alias :create :home
     end
   end
 end
