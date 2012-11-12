@@ -1,8 +1,11 @@
 module ETapestry
   module Account
-    OtherModel = Watirmark::Model::Base.new(*OtherView.keywords) do
-      default.name          {"name_#{uuid}"}
-      default.sort_name     {name}
+    OtherModel = Watirmark::Model.factory do
+      keywords OtherView.keywords
+      defaults do
+        name          {"name_#{uuid}"}
+        sort_name     {name}
+      end
     end
   end
 end

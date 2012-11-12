@@ -6,9 +6,9 @@ require_relative 'other_model'
 
 module ETapestry
   module Account
-    RecordModel = Watirmark::Model::Base.new(*RecordView.keywords) do
+    RecordModel = Watirmark::Model.factory do
+      keywords RecordView.keywords
       search_term {other.name}
-
       model OtherModel
       model PersonaModel
       model HeaderModel

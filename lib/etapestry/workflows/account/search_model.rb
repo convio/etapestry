@@ -1,5 +1,7 @@
 module ETapestry
   module Account
-    SearchModel = Watirmark::Model::Base.new(*SearchView.keywords)
+    SearchModel = Watirmark::Model.factory do
+      keywords SearchView.keywords
+    end
   end
 end
