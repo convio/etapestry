@@ -1,9 +1,0 @@
-# rename this file to config.txt and
-# update the entries accordingly
-
-hostname    = bos.etapestry.com
-site        = prod
-username    = your_email@domain
-password    = password
-webdriver   = firefox
-force_login = true
