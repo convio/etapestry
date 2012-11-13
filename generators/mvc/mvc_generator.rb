@@ -1,5 +1,6 @@
 require 'rubigen'
 require 'active_support/inflector'
+require_relative 'rbeautify'
 
 class MvcGenerator < RubiGen::Base
   attr_reader :product, :name
@@ -21,29 +22,21 @@ class MvcGenerator < RubiGen::Base
   def manifest
     record do |m|
       create_directories(m)
-      unless workflow_exists?
-        update_workflow_loader_manifest
-        add_rake_task
-      end
       add_mvc_stubs m
+      add_loader
+      add_rake_task
     end
   end
 
   def add_mvc_stubs m
     m.template "model.rb.erb", File.join(workflow_directory, "#{@name}_model.rb")
-    m.template "view.rb.erb", File.join(workflow_directory,"#{@name}_view.rb")
-    m.template "controller.rb.erb", File.join(workflow_directory,"#{@name}_controller.rb")
-    m.template "workflow_loader.rb.erb", File.join(workflow_directory, "..", "#{@product}.rb")
+    m.template "view.rb.erb", File.join(workflow_directory, "#{@name}_view.rb")
+    m.template "controller.rb.erb", File.join(workflow_directory, "#{@name}_controller.rb")
+    m.template "loader.rb.erb", File.join(workflow_directory, "loader.rb")
   end
 
   def workflow_exists?
-    File.directory? "../lib/etapestry/workflows/#{@product}"
-  end
-
-  def update_workflow_loader_manifest
-    append_to_file "../lib/etapestry/workflows.rb" do |f|
-      f.puts "require 'etapestry/workflows/#{@product}'"
-    end
+    File.directory? "../#{workflow_directory}"
   end
 
   def add_rake_task
@@ -52,12 +45,26 @@ class MvcGenerator < RubiGen::Base
     end
   end
 
+  def add_loader
+    append_to_file "../lib/etapestry.rb" do |f|
+      f.puts "require 'etapestry/workflows/#{@product.downcase}/loader'"
+    end
+  end
+
   def append_to_file name, &block
-    File.open(name, 'a+') {|f| yield f}
+    File.open(name, 'a+') { |f| yield f }
   end
 
   def create_directories(m)
     m.directory workflow_directory
+  end
+
+  def create_modules
+    @product.split('/').map { |x| "module #{x.camelize}\n" }.join.strip
+  end
+
+  def create_module_end
+    @product.split('/').map { |x| "end\n" }.join.strip
   end
 
   protected
@@ -65,6 +72,13 @@ class MvcGenerator < RubiGen::Base
     <<-EOS
 USAGE: #{spec.name} path/for/your/test/mvc workflow_directory name [options]
     EOS
+  end
+
+  def after_generate
+    mvc_file_path = "#{@destination_root}/#{workflow_directory}/#{@name}"
+    RBeautify.new({}).beautify_file("#{mvc_file_path}_model.rb")
+    RBeautify.new({}).beautify_file("#{mvc_file_path}_view.rb")
+    RBeautify.new({}).beautify_file("#{mvc_file_path}_controller.rb")
   end
 
   def add_options!(opts)

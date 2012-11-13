@@ -1,9 +1,9 @@
 module ETapestry
-  module <%= product.camelcase %>
-    class <%= name.camelcase %> < BaseController
-      @model = <%= name.camelcase %>Model
-      @view = <%= name.camelcase %>View
+<%= create_modules %>
+    class <%= name.camelize %> < BaseController
+      @model = <%= name.camelize %>Model
+      @view = <%= name.camelize %>View
     end
-  end
+<%= create_module_end %>
 end
 

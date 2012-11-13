@@ -1,14 +1,7 @@
 module ETapestry
-  module <%= product.camelcase %>
-    <%= name.camelcase %>Model = Watirmark::Model.factory
-      keywords <%= name.camelcase %>View.keywords
-      #search_term {name}
-      #
-      # defaults do
-      #  name          {"name_#{uuid}"}
-      # end
-      #
-      #model SomeModelName.new
+  <%= create_modules %>
+    <%= name.camelize %>Model = Watirmark::Model.factory do
+      keywords <%= name.camelize %>View.keywords
     end
-  end
+  <%= create_module_end %>
 end

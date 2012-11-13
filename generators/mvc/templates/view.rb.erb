@@ -1,7 +1,7 @@
 module ETapestry
-  module <%= product.camelcase %>
-    class <%= name.camelcase %>View < BaseView
-      #keyword(:name)  { browser.text_field(:id, 'name') }
+  <%= create_modules %>
+    class <%= name.camelize %>View < BaseView
+      keyword(:keyword_name)  { browser.text_field(:id, 'element_id') }
 
       def home(model)
       end
@@ -12,5 +12,5 @@ module ETapestry
       def edit(model)
       end
     end
-  end
+  <%= create_module_end %>
 end
