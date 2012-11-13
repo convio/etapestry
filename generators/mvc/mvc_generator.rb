@@ -23,8 +23,9 @@ class MvcGenerator < RubiGen::Base
     record do |m|
       create_directories(m)
       add_mvc_stubs m
+      # Need to fix these so they don't add multiple times
       add_loader
-      #add_rake_task disable till we add feature to make sure it's not already there
+      add_rake_task
     end
   end
 
@@ -41,7 +42,7 @@ class MvcGenerator < RubiGen::Base
 
   def add_rake_task
     append_to_file "../rakefile.rb" do |f|
-      f.puts "RakeHelper.cucumber_task(:#{@product}, \"features/#{@product}/**/*.feature\")"
+      f.puts "\nRakeHelper.cucumber_task(:#{@product}, \"features/#{@product}/**/*.feature\")"
     end
   end
 
