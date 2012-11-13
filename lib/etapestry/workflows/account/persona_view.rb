@@ -20,7 +20,6 @@ module ETapestry
       keyword(:long_salutation)  {content.text_field(:name, 'longDesignation')}
 
       navigation_keyword(:persona_link)     {content.link(:text, 'Personas')}
-      navigation_keyword(:save_button)  {content.button(:value, 'Save And')}
 
       def home(model=nil)
         persona_link.click

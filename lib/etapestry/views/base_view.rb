@@ -1,5 +1,7 @@
 module ETapestry
   class BaseView < Watirmark::Page
+    navigation_keyword(:save_button)  {content.button(:value, 'Save And')}
+
     def toolbar
       Page.browser.frame(:name, "toolbar")
     end
