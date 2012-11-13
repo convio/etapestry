@@ -24,7 +24,7 @@ class MvcGenerator < RubiGen::Base
       create_directories(m)
       add_mvc_stubs m
       add_loader
-      add_rake_task
+      #add_rake_task disable till we add feature to make sure it's not already there
     end
   end
 
