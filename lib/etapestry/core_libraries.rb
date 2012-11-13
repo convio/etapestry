@@ -10,6 +10,4 @@ Watirmark.loader do
 end
 
 
-require 'etapestry/workflows/login'
-
 
