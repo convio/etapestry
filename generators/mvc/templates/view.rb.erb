@@ -1,7 +1,7 @@
 module ETapestry
   <%= create_modules %>
     class <%= name.camelize %>View < BaseView
-      keyword(:keyword_name)  { browser.text_field(:id, 'element_id') }
+      keyword(:keyword_name)  { content.text_field(:id, 'element_id') }
 
       def home(model)
       end
