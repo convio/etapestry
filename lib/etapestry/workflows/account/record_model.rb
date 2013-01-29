@@ -2,6 +2,8 @@
 require_relative 'persona_model'
 require_relative 'header_model'
 require_relative 'other_model'
+require_relative 'search_model'
+
 
 
 module ETapestry
